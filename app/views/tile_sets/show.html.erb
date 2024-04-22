@@ -1,0 +1,11 @@
+<p>
+  <strong>Description:</strong>
+  <%= @tile_set.description %>
+</p>
+
+<h2>Tiles</h2>
+<%= render @tile_set.tiles %>
+
+<%= link_to 'Add Tile', new_tile_set_tile_path(@tile_set), class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_tile_set_path(@tile_set), class: "btn btn-light" %>
+<%= link_to 'Back to List', tile_sets_path, class: "btn btn-link" %>

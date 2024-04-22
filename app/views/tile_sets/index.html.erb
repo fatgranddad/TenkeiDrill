@@ -1,0 +1,23 @@
+<h1>Tile Sets</h1>
+
+<%= link_to 'New Tile Set', new_tile_set_path, class: "btn btn-primary" %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tile_sets.each do |tile_set| %>
+      <tr>
+        <td><%= tile_set.description %></td>
+        <td><%= link_to 'Show', tile_set, class: "btn btn-light" %></td>
+        <td><%= link_to 'Edit', edit_tile_set_path(tile_set), class: "btn btn-light" %></td>
+        <td><%= link_to 'Destroy', tile_set, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

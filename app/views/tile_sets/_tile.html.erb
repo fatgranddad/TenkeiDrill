@@ -1,0 +1,7 @@
+<div class="tile">
+  <p>
+    <%= tile.name %> (<%= tile.category %> - <%= tile.value %>)
+  </p>
+
+  <%= link_to 'Remove', tile_set_tile_path(tile.tile_set, tile), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+</div>

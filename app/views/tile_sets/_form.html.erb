@@ -1,0 +1,10 @@
+<%= form_with(model: tile_set, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
