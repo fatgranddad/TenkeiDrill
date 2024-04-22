@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tile_set: one
+  hand_type: one
+  fu: 1
+  han: 1
+  points: 1
+
+two:
+  tile_set: two
+  hand_type: two
+  fu: 1
+  han: 1
+  points: 1
