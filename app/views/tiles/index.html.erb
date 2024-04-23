@@ -1,0 +1,9 @@
+<h1>牌の一覧</h1>
+<div class="tiles">
+  <% @tiles.each do |tile| %>
+    <div class="tile">
+      <h3><%= tile.name %></h3>
+      <%= image_tag(tile.image) if tile.image.attached? %>
+    </div>
+  <% end %>
+</div>
