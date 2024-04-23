@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   images.forEach(image => {
     let img = new Image();
-    img.src = `/assets/${image}`;
+    img.src = `/images/${image}`;
     document.body.appendChild(img);
   });
 });
