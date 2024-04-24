@@ -4,6 +4,7 @@ class CreateTiles < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :category
       t.integer :value
+      t.string :image_path
 
       t.timestamps
     end

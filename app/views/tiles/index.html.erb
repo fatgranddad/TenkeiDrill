@@ -1,9 +1,6 @@
-<h1>牌の一覧</h1>
-<div class="tiles">
+<h1>牌の選択</h1>
+<div id="tiles-container">
   <% @tiles.each do |tile| %>
-    <div class="tile">
-      <h3><%= tile.name %></h3>
-      <%= image_tag(tile.image) if tile.image.attached? %>
-    </div>
+    <%= image_tag("/images/#{tile.image_path}", alt: tile.name, class: 'tile-image') if tile.image_path.present? %>
   <% end %>
 </div>

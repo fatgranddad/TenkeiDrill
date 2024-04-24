@@ -10,77 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_22_140146) do
-  create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-  end
-
-  create_table "active_storage_blobs", charset: "utf8", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.string "service_name", null: false
-    t.bigint "byte_size", null: false
-    t.string "checksum"
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "active_storage_variant_records", charset: "utf8", force: :cascade do |t|
-    t.bigint "blob_id", null: false
-    t.string "variation_digest", null: false
-    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "hand_results", charset: "utf8", force: :cascade do |t|
-    t.bigint "tile_set_id", null: false
-    t.bigint "hand_type_id", null: false
-    t.integer "fu"
-    t.integer "han"
-    t.integer "points"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["hand_type_id"], name: "index_hand_results_on_hand_type_id"
-    t.index ["tile_set_id"], name: "index_hand_results_on_tile_set_id"
-  end
-
-  create_table "hand_types", charset: "utf8", force: :cascade do |t|
-    t.string "name"
-    t.integer "han"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tile_set_items", charset: "utf8", force: :cascade do |t|
-    t.bigint "tile_set_id", null: false
-    t.bigint "tile_id", null: false
-    t.integer "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tile_id"], name: "index_tile_set_items_on_tile_id"
-    t.index ["tile_set_id"], name: "index_tile_set_items_on_tile_set_id"
-  end
-
-  create_table "tile_sets", charset: "utf8", force: :cascade do |t|
-    t.text "description"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_tile_sets_on_user_id"
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2024_04_23_160547) do
   create_table "tiles", charset: "utf8", force: :cascade do |t|
     t.string "name"
     t.string "category"
     t.integer "value"
+    t.string "image_path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,11 +33,4 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_22_140146) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "hand_results", "hand_types"
-  add_foreign_key "hand_results", "tile_sets"
-  add_foreign_key "tile_set_items", "tile_sets"
-  add_foreign_key "tile_set_items", "tiles"
-  add_foreign_key "tile_sets", "users"
 end
