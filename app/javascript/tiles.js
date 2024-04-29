@@ -1,28 +1,19 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const images = [
-    'tile_p1.png',
-    'tile_p2.png',
-    'tile_p3.png'
-  ];
+  const button = document.getElementById('show-grid-button');
+  const tilesContainer = document.getElementById('tiles-container');
+  const selectedTile = document.getElementById('selected-tile');
 
-  const tilesContainer = document.createElement('div');
-  tilesContainer.id = 'tiles-container';
-  document.body.appendChild(tilesContainer);
-
-  images.forEach(image => {
-    let img = new Image();
-    img.src = `/images/${image}`;
-    img.classList.add('tile-image'); // CSSクラスを追加
-    img.dataset.tileId = image.split('.')[0]; // tile_p1からIDを抽出
-    tilesContainer.appendChild(img);
+  // ボタンがクリックされた時に画像グリッドを表示
+  button.addEventListener('click', function() {
+    tilesContainer.style.display = 'block'; // 画像グリッドを表示
   });
 
+  // 牌の画像がクリックされた時の処理
   tilesContainer.addEventListener('click', function(event) {
-    event.preventDefault();
-    const tileId = event.target.dataset.tileId;
-    if (tileId) {
-      console.log('Selected Tile ID:', tileId);
-      // ここで選択された牌のIDをフォームに設定するなどの処理を行う
+    if (event.target.className === 'tile-image') {
+      const imageSrc = event.target.src;
+      selectedTile.innerHTML = `<img src="${imageSrc}" alt="Selected Tile" style="width: 100px;">`;
+      tilesContainer.style.display = 'none'; // 画像グリッドを非表示
     }
   });
 });

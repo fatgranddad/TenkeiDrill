@@ -32,7 +32,10 @@ module.exports = function(api) {
           useBuiltIns: 'entry',
           corejs: 3,
           modules: false,
-          exclude: ['transform-typeof-symbol']
+          exclude: ['transform-typeof-symbol'],
+          targets: {
+            browsers: "> 0.25%, not dead, last 2 versions"
+          }
         }
       ]
     ].filter(Boolean),
@@ -65,6 +68,7 @@ module.exports = function(api) {
           loose: true
         }
       ],
+      '@babel/plugin-proposal-optional-chaining', // ここに追加
       [
         '@babel/plugin-transform-runtime',
         {

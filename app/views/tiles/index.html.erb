@@ -1,6 +1,9 @@
 <h1>牌の選択</h1>
-<div id="tiles-container">
+<button id="show-grid-button">牌を選択</button>
+<div id="selected-tile" style="margin-top: 20px;"></div>
+
+<div id="tiles-container" style="display: none;">
   <% @tiles.each do |tile| %>
-    <%= image_tag("/images/#{tile.image_path}", alt: tile.name, class: 'tile-image') if tile.image_path.present? %>
+    <%= image_tag("/images/#{tile.image_path}", alt: tile.name, class: 'tile-image') %>
   <% end %>
 </div>
